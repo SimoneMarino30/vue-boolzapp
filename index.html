@@ -38,6 +38,58 @@
 
   <body>
     <!-- vue start -->
-    <div id="root"></div>
+    <div id="root">
+      <div class="container">
+        <div class="row">
+          <div class="col-4 d-flex">
+            <div class="d-inline">
+              <img src="./img/avatar_1.jpg" alt="" class="my-3" />
+              <span>Simone</span>
+            </div>
+            <div class="d-inline ms-auto align-self-center">
+              <i>#</i>
+              <i>#</i>
+              <i>#</i>
+            </div>
+          </div>
+          <div class="col-8"></div>
+        </div>
+      </div>
+      <div class="container">
+        <div class="row">
+          <div class="col-4">
+            <div>
+              <div>Ricevi notifiche di nuovi messaggi</div>
+              <a href="#">Attiva notifiche desktop</a>
+            </div>
+            <div class="searchBar">
+              <form class="d-flex" role="search">
+                <button class="btn btn-outline-success" type="submit">#</button>
+                <input
+                  class="form-control me-2"
+                  type="search"
+                  placeholder="Search"
+                  aria-label="Search"
+                />
+              </form>
+            </div>
+            <!-- Card -->
+            <div class="avatarTextCard">
+              <div class="col-10">
+                <img src="./img/avatar_2.jpg" alt="" class="my-3" />
+                <div class="textCard">
+                  <div>Michele</div>
+                  <div>Ultimo messaggio inviato</div>
+                </div>
+                <div class="textHour">12:00</div>
+              </div>
+            </div>
+          </div>
+          <div class="col-8">
+            <div class="conversationPanel"></div>
+          </div>
+        </div>
+      </div>
+    </div>
   </body>
 </html>

@@ -4,3 +4,68 @@
   padding: 0;
   box-sizing: border-box;
 }
+
+img {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  border: 1px solid blue;
+}
+
+/* GENERAL */
+
+.container {
+  border: 1px dashed blue;
+  /* height: 100vh; */
+}
+
+.row {
+  border: 1px dashed red;
+  height: 100%;
+}
+
+/* SIDE SECTION START */
+
+.col-4 {
+  border: 3px dashed green;
+  background-color: lightgreen;
+}
+
+.col-8 {
+  border: 3px dashed yellow;
+  background: url(../img/mine.jpg);
+}
+
+/* search bar */
+.searchBar {
+  border: 3px dashed yellow;
+}
+/* card */
+.avatarTextCard {
+  border: 1px solid black;
+  position: relative;
+}
+
+.textCard {
+  border: 1px solid blue;
+  position: absolute;
+  bottom: 0;
+  left: 50px;
+}
+
+.textHour {
+  border: 1px solid blue;
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+/* SIDE SECTION END */
+
+/* CONVERSATION SECTION START */
+
+.conversationPanel {
+  border: 3px dashed orange;
+
+  height: 100%;
+}
+/* CONVERSATION SECTION END */
