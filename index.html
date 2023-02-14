@@ -44,7 +44,7 @@
           <!-- left side -->
           <div class="col-4 d-flex">
             <div class="d-inline">
-              <img src="./img/avatar_1.jpg" alt="" class="my-3" />
+              <img src="./img/avatar_io.jpg" alt="" class="my-3" />
               <span>Simone</span>
             </div>
             <div class="d-inline ms-auto align-self-center">
@@ -56,7 +56,7 @@
           <!-- right side -->
           <div class="col-8 d-flex">
             <div class="d-inline position-relative">
-              <img src="./img/avatar_2.jpg" alt="" class="my-3" />
+              <img src="./img/avatar_1.jpg" alt="" class="my-3" />
               <div class="activeTextCard">
                 <div>Michele</div>
                 <div>Ultimo accesso oggi alle 12:00</div>
@@ -89,12 +89,19 @@
               </form>
             </div>
             <!-- Card -->
-            <div class="avatarTextCard">
+            <div class="avatarTextCard" v-for="(contact, index) in contacts">
               <div class="col-10">
-                <img src="./img/avatar_2.jpg" alt="" class="my-3" />
+                <img
+                  :src="'./img/avatar' + contact.avatar +'.jpg'"
+                  alt=""
+                  class="my-3"
+                />
                 <div class="textCard">
-                  <div>Michele</div>
-                  <div>Ultimo messaggio inviato</div>
+                  <div>{{ contact.name }}</div>
+                  <div v-for="sms in contact.messages">
+                    <!-- v-if="index == '0'" -->
+                    <div v-if="sms.status == 'received'">{{ sms.text }}</div>
+                  </div>
                 </div>
                 <div class="textHour">12:00</div>
               </div>
@@ -104,17 +111,19 @@
           <div class="col-8">
             <div class="conversationPanel">
               <div class="row">
-                <!-- Received Texts col-6 -->
-                <div class="col-6 receivedText">
-                  <span class="badge rounded-pill text-bg-secondary">
-                    Secondary
-                  </span>
-                </div>
-                <!-- Sent Texts col-6 -->
-                <div class="col-6 sentText text-end">
-                  <span class="badge rounded-pill text-bg-success">
-                    aaaaaaa
-                  </span>
+                <!-- Received & Sent Texts active -->
+                <div
+                  class="col-12 d-flex flex-wrap"
+                  v-for="(contact, index) in contacts"
+                >
+                  <div v-for="sms in contact.messages">
+                    <div v-if="sms.status == 'received'" class="receivedText">
+                      {{ sms.text }}
+                    </div>
+                    <div v-else="sms.status == 'sent'" class="sentText">
+                      {{ sms.text }}
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
@@ -127,7 +136,7 @@
                   placeholder="Leave a comment here"
                   id="floatingTextarea"
                 ></textarea>
-                <label for="floatingTextarea">Comments</label>
+                <label for="floatingTextarea">Scrivi un messaggio</label>
               </div>
               <i>#</i>
             </footer>

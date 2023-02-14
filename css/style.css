@@ -70,7 +70,7 @@ img {
 }
 
 .activeTextCard {
-  border: 1px solid blue;
+  border: 1px solid lightskyblue;
   position: absolute;
   bottom: 0;
   left: 50px;
@@ -79,4 +79,22 @@ img {
 .activeTextCard > div {
   width: 300px;
 }
+
+.receivedText {
+  width: 200px;
+  height: 100px;
+  background-color: lightgreen;
+  border: 1px solid black;
+}
+
+.sentText {
+  width: 200px;
+  height: 100px;
+  background-color: lightgray;
+  border: 1px solid black;
+}
 /* CONVERSATION SECTION END */
+
+/* DEBUG */
+.active {
+}
