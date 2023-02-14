@@ -68,4 +68,15 @@ img {
 
   height: 100%;
 }
+
+.activeTextCard {
+  border: 1px solid blue;
+  position: absolute;
+  bottom: 0;
+  left: 50px;
+}
+
+.activeTextCard > div {
+  width: 300px;
+}
 /* CONVERSATION SECTION END */

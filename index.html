@@ -41,6 +41,7 @@
     <div id="root">
       <div class="container">
         <div class="row">
+          <!-- left side -->
           <div class="col-4 d-flex">
             <div class="d-inline">
               <img src="./img/avatar_1.jpg" alt="" class="my-3" />
@@ -52,7 +53,21 @@
               <i>#</i>
             </div>
           </div>
-          <div class="col-8"></div>
+          <!-- right side -->
+          <div class="col-8 d-flex">
+            <div class="d-inline position-relative">
+              <img src="./img/avatar_2.jpg" alt="" class="my-3" />
+              <div class="activeTextCard">
+                <div>Michele</div>
+                <div>Ultimo accesso oggi alle 12:00</div>
+              </div>
+            </div>
+            <div class="d-inline ms-auto align-self-center">
+              <i>#</i>
+              <i>#</i>
+              <i>#</i>
+            </div>
+          </div>
         </div>
       </div>
       <div class="container">
@@ -85,8 +100,37 @@
               </div>
             </div>
           </div>
+          <!-- conversation panel -->
           <div class="col-8">
-            <div class="conversationPanel"></div>
+            <div class="conversationPanel">
+              <div class="row">
+                <!-- Received Texts col-6 -->
+                <div class="col-6 receivedText">
+                  <span class="badge rounded-pill text-bg-secondary">
+                    Secondary
+                  </span>
+                </div>
+                <!-- Sent Texts col-6 -->
+                <div class="col-6 sentText text-end">
+                  <span class="badge rounded-pill text-bg-success">
+                    aaaaaaa
+                  </span>
+                </div>
+              </div>
+            </div>
+            <!-- footer -->
+            <footer class="d-flex">
+              <i>#</i>
+              <div class="form-floating">
+                <textarea
+                  class="form-control"
+                  placeholder="Leave a comment here"
+                  id="floatingTextarea"
+                ></textarea>
+                <label for="floatingTextarea">Comments</label>
+              </div>
+              <i>#</i>
+            </footer>
           </div>
         </div>
       </div>
