@@ -192,7 +192,13 @@ createApp({
           ],
         },
       ],
+
       clickedContact: 0,
+
+      myNewText: {
+        text: "",
+        status: "sent",
+      },
     };
   },
 
@@ -200,6 +206,15 @@ createApp({
     activeImage(index) {
       this.clickedContact = index;
     },
+
+    // addText() {
+    //   const newText = {
+    //     date: this.myNewText.text,
+    //     status: "sent",
+    //   };
+    //   this.push(newText);
+    //   this.myNewText.text = "";
+    // },
   },
 }).mount("#root");
 // ✔

@@ -132,21 +132,44 @@
                   {{sms.text}} <br />
                   <small>{{sms.date}}</small>
                 </div>
+                <!-- V-MODEL DA RIGUARDARE -->
+                <!-- <div>{{newText}}</div> -->
               </div>
             </div>
             <!-- footer -->
-            <footer class="d-flex">
+            <footer class="send-message-bar d-flex py-3">
+              <div class="d-flex align-items-center icons px-4 py-2">
+                <i class="fa-regular fa-face-smile mx-2"></i>
+              </div>
+              <div class="flex-grow-1">
+                <input
+                  type="text"
+                  placeholder="Scrivi un messaggio"
+                  class="send-message-input px-4 p-2"
+                />
+                <!-- RIGUARDARE BENE -->
+                <!-- @keyUp.enter="addText()" -->
+                <!-- v-model="myNewText.text" -->
+              </div>
+              <div class="d-flex align-items-center icons px-4 py-2">
+                <i class="fa-solid fa-microphone mx-2"></i>
+              </div>
+            </footer>
+            <!-- <footer class="d-flex">
               <i>#</i>
               <div class="form-floating d-flex flex-grow-1">
+                
                 <textarea
                   class="form-control"
                   placeholder="Leave a comment here"
                   id="floatingTextarea"
+                  v-model="myNewText.text"
+                  @keyUp.enter="addText()"
                 ></textarea>
                 <label for="floatingTextarea">Scrivi un messaggio</label>
               </div>
               <i>#</i>
-            </footer>
+            </footer> -->
           </div>
         </div>
       </div>
