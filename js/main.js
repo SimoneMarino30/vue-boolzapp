@@ -6,8 +6,8 @@
 // nome e immagine di ogni contatto ✔
 // **Milestone 2**
 // ● Visualizzazione dinamica dei messaggi: tramite la direttiva v-for, visualizzare tutti i
-// messaggi relativi al contatto attivo all’interno del pannello della conversazione
-// ● Click sul contatto mostra la conversazione del contatto cliccato
+// messaggi relativi al contatto attivo all’interno del pannello della conversazione ✔
+// ● Click sul contatto mostra la conversazione del contatto cliccato ✔
 // **Milestone 3**
 // ● Aggiunta di un messaggio: l’utente scrive un testo nella parte bassa e digitando
 // “enter” il testo viene aggiunto al thread sopra, come messaggio verde
@@ -192,12 +192,13 @@ createApp({
           ],
         },
       ],
+      clickedContact: 0,
     };
   },
 
   methods: {
-    activeImage() {
-      console.log("hai cliccato");
+    activeImage(index) {
+      this.clickedContact = index;
     },
   },
 }).mount("#root");
