@@ -197,9 +197,7 @@ createApp({
 
   methods: {
     activeImage() {
-      // console.log("hai cliccato");
-      if (sms.status == "received") {
-      }
+      console.log("hai cliccato");
     },
   },
 }).mount("#root");

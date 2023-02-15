@@ -106,7 +106,7 @@
                 <div class="textCard">
                   <div>{{ contact.name }}</div>
 
-                  <!-- v-if="index == '0'" -->
+                  <!-- v-if="index == '0' -->
                   <div v-if="true">
                     {{ contact.messages[contact.messages.length - 1].text }}
                   </div>
@@ -127,14 +127,8 @@
                   v-for="(contact, index) in contacts"
                 >
                   <div v-for="sms in contact.messages">
-                    <div
-                      v-if="sms.status == 'received'"
-                      :class="[sms.status]"
-                      class="d-flex"
-                    >
-                      {{ sms.text }}
-                    </div>
-                    <div v-else="sms.status == 'sent'" :class="[sms.status]">
+                    <div :class="[sms.status]">
+                      {{ sms.date }} <br />
                       {{ sms.text }}
                     </div>
                   </div>
