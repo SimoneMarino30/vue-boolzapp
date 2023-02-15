@@ -48,9 +48,9 @@
               <span>Simone</span>
             </div>
             <div class="d-inline ms-auto align-self-center">
-              <i>#</i>
-              <i>#</i>
-              <i>#</i>
+              <i class="fa-solid fa-circle-notch"></i>
+              <i class="fa-solid fa-message mx-3"></i>
+              <i class="fa-solid fa-ellipsis-vertical"></i>
             </div>
           </div>
           <!-- right side -->
@@ -63,9 +63,9 @@
               </div>
             </div>
             <div class="d-inline ms-auto align-self-center">
-              <i>#</i>
-              <i>#</i>
-              <i>#</i>
+              <i class="fa-solid fa-magnifying-glass"></i>
+              <i class="fa-solid fa-paperclip my-3"></i>
+              <i class="fa-solid fa-ellipsis-vertical"></i>
             </div>
           </div>
         </div>
@@ -73,13 +73,16 @@
       <div class="container">
         <div class="row">
           <div class="col-4">
-            <div>
+            <div class="d-flex">
+              <i class="fa-solid fa-bell"></i>
               <div>Ricevi notifiche di nuovi messaggi</div>
-              <a href="#">Attiva notifiche desktop</a>
             </div>
+            <a href="#">Attiva notifiche desktop</a>
             <div class="searchBar">
               <form class="d-flex" role="search">
-                <button class="btn btn-outline-success" type="submit">#</button>
+                <button class="btn btn-outline-success" type="submit">
+                  <i class="fa-solid fa-magnifying-glass"></i>
+                </button>
                 <input
                   class="form-control me-2"
                   type="search"
@@ -89,7 +92,11 @@
               </form>
             </div>
             <!-- Card -->
-            <div class="avatarTextCard" v-for="(contact, index) in contacts">
+            <div
+              class="avatarTextCard"
+              v-for="(contact, index) in contacts"
+              @click="activeImage()"
+            >
               <div class="col-10">
                 <img
                   :src="'./img/avatar' + contact.avatar +'.jpg'"
@@ -98,12 +105,15 @@
                 />
                 <div class="textCard">
                   <div>{{ contact.name }}</div>
-                  <div v-for="sms in contact.messages">
-                    <!-- v-if="index == '0'" -->
-                    <div v-if="sms.status == 'received'">{{ sms.text }}</div>
+
+                  <!-- v-if="index == '0'" -->
+                  <div v-if="true">
+                    {{ contact.messages[contact.messages.length - 1].text }}
                   </div>
                 </div>
-                <div class="textHour">12:00</div>
+                <div class="textHour">
+                  {{ contact.messages[contact.messages.length - 1].date }}
+                </div>
               </div>
             </div>
           </div>
@@ -117,10 +127,14 @@
                   v-for="(contact, index) in contacts"
                 >
                   <div v-for="sms in contact.messages">
-                    <div v-if="sms.status == 'received'" class="receivedText">
+                    <div
+                      v-if="sms.status == 'received'"
+                      :class="[sms.status]"
+                      class="d-flex"
+                    >
                       {{ sms.text }}
                     </div>
-                    <div v-else="sms.status == 'sent'" class="sentText">
+                    <div v-else="sms.status == 'sent'" :class="[sms.status]">
                       {{ sms.text }}
                     </div>
                   </div>
@@ -130,7 +144,7 @@
             <!-- footer -->
             <footer class="d-flex">
               <i>#</i>
-              <div class="form-floating">
+              <div class="form-floating d-flex flex-grow-1">
                 <textarea
                   class="form-control"
                   placeholder="Leave a comment here"

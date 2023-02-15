@@ -15,12 +15,12 @@ img {
 /* GENERAL */
 
 .container {
-  border: 1px dashed blue;
+  /* border: 1px dashed blue; */
   /* height: 100vh; */
 }
 
 .row {
-  border: 1px dashed red;
+  /* border: 1px dashed red; */
   height: 100%;
 }
 
@@ -32,7 +32,7 @@ img {
 }
 
 .col-8 {
-  border: 3px dashed yellow;
+  /* border: 3px dashed yellow; */
   background: url(../img/mine.jpg);
 }
 
@@ -47,14 +47,14 @@ img {
 }
 
 .textCard {
-  border: 1px solid blue;
+  /* border: 1px solid blue; */
   position: absolute;
   bottom: 0;
   left: 50px;
 }
 
 .textHour {
-  border: 1px solid blue;
+  /* border: 1px solid blue; */
   position: absolute;
   top: 0;
   right: 0;
@@ -64,7 +64,7 @@ img {
 /* CONVERSATION SECTION START */
 
 .conversationPanel {
-  border: 3px dashed orange;
+  /* border: 3px dashed orange; */
 
   height: 100%;
 }
@@ -80,14 +80,14 @@ img {
   width: 300px;
 }
 
-.receivedText {
+.received {
   width: 200px;
   height: 100px;
   background-color: lightgreen;
   border: 1px solid black;
 }
 
-.sentText {
+.sent {
   width: 200px;
   height: 100px;
   background-color: lightgray;
