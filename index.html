@@ -44,7 +44,7 @@
           <!-- left side -->
           <div class="col-4 d-flex">
             <div class="d-inline">
-              <img src="../img/avatar_io.jpg" alt="" class="my-3" />
+              <img src="./img/avatar_io.jpg" alt="" class="my-3" />
               <span>Simone</span>
             </div>
             <div class="d-inline ms-auto align-self-center">
@@ -57,7 +57,7 @@
           <div class="col-8 d-flex">
             <div class="d-inline position-relative">
               <img
-                :src="'../img/avatar' + contacts[clickedContact].avatar + '.jpg'"
+                :src="'./img/avatar' + contacts[clickedContact].avatar + '.jpg'"
                 alt=""
                 class="my-3"
               />
@@ -104,7 +104,7 @@
             >
               <div class="col-10">
                 <img
-                  :src="'../img/avatar' + contact.avatar +'.jpg'"
+                  :src="'./img/avatar' + contact.avatar +'.jpg'"
                   alt=""
                   class="my-3"
                 />
@@ -132,8 +132,6 @@
                   {{sms.text}} <br />
                   <small>{{sms.date}}</small>
                 </div>
-                <!-- V-MODEL DA RIGUARDARE -->
-                <!-- <div>{{newText}}</div> -->
               </div>
             </div>
             <!-- footer -->
@@ -146,30 +144,14 @@
                   type="text"
                   placeholder="Scrivi un messaggio"
                   class="send-message-input px-4 p-2"
+                  @keyUp.enter="addText()"
+                  v-model="myNewText.text"
                 />
-                <!-- RIGUARDARE BENE -->
-                <!-- @keyUp.enter="addText()" -->
-                <!-- v-model="myNewText.text" -->
               </div>
               <div class="d-flex align-items-center icons px-4 py-2">
                 <i class="fa-solid fa-microphone mx-2"></i>
               </div>
             </footer>
-            <!-- <footer class="d-flex">
-              <i>#</i>
-              <div class="form-floating d-flex flex-grow-1">
-                
-                <textarea
-                  class="form-control"
-                  placeholder="Leave a comment here"
-                  id="floatingTextarea"
-                  v-model="myNewText.text"
-                  @keyUp.enter="addText()"
-                ></textarea>
-                <label for="floatingTextarea">Scrivi un messaggio</label>
-              </div>
-              <i>#</i>
-            </footer> -->
           </div>
         </div>
       </div>

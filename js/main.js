@@ -10,9 +10,9 @@
 // ● Click sul contatto mostra la conversazione del contatto cliccato ✔
 // **Milestone 3**
 // ● Aggiunta di un messaggio: l’utente scrive un testo nella parte bassa e digitando
-// “enter” il testo viene aggiunto al thread sopra, come messaggio verde
+// “enter” il testo viene aggiunto al thread sopra, come messaggio verde ✔
 // ● Risposta dall’interlocutore: ad ogni inserimento di un messaggio, l’utente riceverà
-// un “ok” come risposta, che apparirà dopo 1 secondo.
+// un “ok” come risposta, che apparirà dopo 1 secondo. ✔
 // **Milestone 4**
 // ● Ricerca utenti: scrivendo qualcosa nell’input a sinistra, vengono visualizzati solo i
 // contatti il cui nome contiene le lettere inserite (es, Marco, Matteo Martina -> Scrivo
@@ -196,6 +196,7 @@ createApp({
       clickedContact: 0,
 
       myNewText: {
+        date: "11:57",
         text: "",
         status: "sent",
       },
@@ -207,14 +208,23 @@ createApp({
       this.clickedContact = index;
     },
 
-    // addText() {
-    //   const newText = {
-    //     date: this.myNewText.text,
-    //     status: "sent",
-    //   };
-    //   this.push(newText);
-    //   this.myNewText.text = "";
-    // },
+    addText() {
+      this.contacts[this.clickedContact].messages.push({
+        date: this.myNewText.date,
+        text: this.myNewText.text,
+        status: "sent",
+      });
+
+      this.myNewText.text = "";
+
+      setTimeout(() => {
+        this.contacts[this.clickedContact].messages.push({
+          date: "11:58",
+          text: "ok!",
+          status: "received",
+        });
+      }, 1000);
+    },
   },
 }).mount("#root");
 // ✔
