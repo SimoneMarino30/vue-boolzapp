@@ -44,7 +44,7 @@
       <div class="container">
         <header class="row">
           <!-- header left side -->
-          <div class="col-4 d-flex">
+          <div class="header-left-col col-4 d-flex">
             <div class="d-inline">
               <img src="./img/avatar_io.jpg" alt="" class="my-3" />
               <span>Simone</span>
@@ -57,7 +57,7 @@
           </div>
           <!-- header right side -->
           <div class="col-8 d-flex">
-            <div class="d-inline position-relative">
+            <div class="header-right-col d-inline position-relative">
               <img
                 :src="'./img/avatar' + contacts[clickedContact].avatar + '.jpg'"
                 alt=""
@@ -148,7 +148,7 @@
                 <input
                   type="text"
                   placeholder="Scrivi un messaggio"
-                  class="send-message-input px-4 p-2"
+                  class="send-message-input px-4 p-2 w-100"
                   @keyUp.enter="addText()"
                   v-model="myNewText.text"
                 />
