@@ -16,7 +16,7 @@
 // **Milestone 4**
 // ● Ricerca utenti: scrivendo qualcosa nell’input a sinistra, vengono visualizzati solo i
 // contatti il cui nome contiene le lettere inserite (es, Marco, Matteo Martina -> Scrivo
-// “mar” rimangono solo Marco e Martina)
+// “mar” rimangono solo Marco e Martina) ✔
 // **Milestone 5 - opzionale**
 // ● Cancella messaggio: cliccando sul messaggio appare un menu a tendina che
 // permette di cancellare il messaggio selezionato
@@ -200,10 +200,25 @@ createApp({
         text: "",
         status: "sent",
       },
+
+      mySearch: "",
     };
   },
 
   methods: {
+    filterList() {
+      // "Rifaccio" il ciclo sui contatti
+      for (const contact of this.contacts) {
+        // Comparo le lettere del nome con quello che scrivo io
+        if (!contact.name.toLowerCase().includes(this.mySearch.toLowerCase())) {
+          // cambio il valore di visible in base alla ricerca(v-show in HTML)
+          contact.visible = false;
+        } else {
+          contact.visible = true;
+        }
+      }
+    },
+
     activeImage(index) {
       this.clickedContact = index;
     },

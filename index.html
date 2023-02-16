@@ -30,7 +30,9 @@
     <link rel="stylesheet" href="./css/style.css" />
 
     <!-- VUE JS -->
-    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <!-- <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script> -->
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.global.min.js"></script>
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/3.2.47/vue.cjs.js"></script> -->
 
     <!-- MAIN JS -->
     <script type="text/javascript" src="./js/main.js" defer></script>
@@ -40,8 +42,8 @@
     <!-- vue start -->
     <div id="root">
       <div class="container">
-        <div class="row">
-          <!-- left side -->
+        <header class="row">
+          <!-- header left side -->
           <div class="col-4 d-flex">
             <div class="d-inline">
               <img src="./img/avatar_io.jpg" alt="" class="my-3" />
@@ -53,7 +55,7 @@
               <i class="fa-solid fa-ellipsis-vertical"></i>
             </div>
           </div>
-          <!-- right side -->
+          <!-- header right side -->
           <div class="col-8 d-flex">
             <div class="d-inline position-relative">
               <img
@@ -72,7 +74,7 @@
               <i class="fa-solid fa-ellipsis-vertical"></i>
             </div>
           </div>
-        </div>
+        </header>
       </div>
       <div class="container">
         <div class="row">
@@ -84,7 +86,7 @@
             <a href="#">Attiva notifiche desktop</a>
             <div class="searchBar">
               <form class="d-flex" role="search">
-                <button class="btn btn-outline-success" type="submit">
+                <button class="btn btn-outline-success" type="button">
                   <i class="fa-solid fa-magnifying-glass"></i>
                 </button>
                 <input
@@ -92,6 +94,8 @@
                   type="search"
                   placeholder="Search"
                   aria-label="Search"
+                  v-model="mySearch"
+                  @keyUp="filterList()"
                 />
               </form>
             </div>
@@ -101,6 +105,7 @@
               v-for="(contact, index) in contacts"
               @click="activeImage(index)"
               :class="(index == clickedContact ) ? 'active':''"
+              v-show="contact.visible"
             >
               <div class="col-10">
                 <img
