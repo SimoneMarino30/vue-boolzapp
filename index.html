@@ -41,23 +41,24 @@
   <body>
     <!-- vue start -->
     <div id="root">
-      <div class="container">
+      <div class="green-top-border"></div>
+      <div class="container top-border-from-panel">
         <header class="row">
           <!-- header left side -->
           <div class="header-left-col col-4 d-flex">
             <div class="d-inline">
-              <img src="./img/avatar_io.jpg" alt="" class="my-3" />
+              <img src="./img/avatar_io.jpg" alt="" class="my-3 ms-3" />
               <span>Simone</span>
             </div>
-            <div class="d-inline ms-auto align-self-center">
+            <div class="d-inline ms-auto me-3 align-self-center">
               <i class="fa-solid fa-circle-notch"></i>
               <i class="fa-solid fa-message mx-3"></i>
               <i class="fa-solid fa-ellipsis-vertical"></i>
             </div>
           </div>
           <!-- header right side -->
-          <div class="col-8 d-flex">
-            <div class="header-right-col d-inline position-relative">
+          <div class="header-right-col col-8 d-flex">
+            <div class="d-inline position-relative">
               <img
                 :src="'./img/avatar' + contacts[clickedContact].avatar + '.jpg'"
                 alt=""
@@ -76,14 +77,16 @@
           </div>
         </header>
       </div>
-      <div class="container">
+
+      <div class="container conversations">
         <div class="row">
           <div class="col-4">
-            <div class="d-flex">
-              <i class="fa-solid fa-bell"></i>
+            <div class="d-flex left-bar">
+              <i class="fa-solid fa-bell me-3"></i>
               <div>Ricevi notifiche di nuovi messaggi</div>
+              <a href="#">Attiva notifiche desktop</a>
             </div>
-            <a href="#">Attiva notifiche desktop</a>
+
             <div class="searchBar">
               <form class="d-flex" role="search">
                 <button class="btn btn-outline-success" type="button">
@@ -124,9 +127,10 @@
                 </div>
               </div>
             </div>
+            <div id="bottom-textcard-margin-white"></div>
           </div>
           <!-- conversation panel -->
-          <div class="col-8">
+          <div class="col-8 position-relative">
             <div class="conversationPanel">
               <!-- Received & Sent Texts active -->
               <div
@@ -138,25 +142,25 @@
                   <small>{{sms.date}}</small>
                 </div>
               </div>
+              <!-- footer -->
+              <div class="send-message-bar d-flex py-3">
+                <div class="d-flex align-items-center icons px-4 py-2">
+                  <i class="fa-regular fa-face-smile mx-2"></i>
+                </div>
+                <div class="flex-grow-1">
+                  <input
+                    type="text"
+                    placeholder="Scrivi un messaggio"
+                    class="send-message-input px-4 p-2 w-100"
+                    @keyUp.enter="addText()"
+                    v-model="myNewText.text"
+                  />
+                </div>
+                <div class="d-flex align-items-center icons px-4 py-2">
+                  <i class="fa-solid fa-microphone mx-2"></i>
+                </div>
+              </div>
             </div>
-            <!-- footer -->
-            <footer class="send-message-bar d-flex py-3">
-              <div class="d-flex align-items-center icons px-4 py-2">
-                <i class="fa-regular fa-face-smile mx-2"></i>
-              </div>
-              <div class="flex-grow-1">
-                <input
-                  type="text"
-                  placeholder="Scrivi un messaggio"
-                  class="send-message-input px-4 p-2 w-100"
-                  @keyUp.enter="addText()"
-                  v-model="myNewText.text"
-                />
-              </div>
-              <div class="d-flex align-items-center icons px-4 py-2">
-                <i class="fa-solid fa-microphone mx-2"></i>
-              </div>
-            </footer>
           </div>
         </div>
       </div>

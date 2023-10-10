@@ -5,65 +5,125 @@
   box-sizing: border-box;
 }
 
+html {
+  background-color: #d8dbd4;
+}
+
 img {
   width: 50px;
   height: 50px;
   border-radius: 50%;
 }
 
+#root {
+  background-color: #d8dbd4;
+}
+
+.green-top-border {
+  position: fixed;
+  z-index: 0;
+  width: 100%;
+  height: 6rem;
+  background-color: #009688;
+  margin-bottom: 2rem;
+}
 /* GENERAL */
 
 .container {
-  /* border: 1px dashed blue; */
+  position: relative;
+  /* padding-top: 2rem; */
+
   /* height: 100vh; */
 }
 
+.top-border-from-panel {
+  padding-top: 2rem;
+}
+
 .row {
-  /* border: 1px dashed red; */
-  height: 100%;
+  /* border: 3px dashed blue; */
+  /* height: 100%; */
 }
 
 /* SIDE SECTION START */
-
+.header-left-col {
+  background-color: #eaeaea;
+  border-right: 1px solid gray;
+  /* padding: 1rem; */
+}
 .col-4 {
-  background-color: #f0f2f5;
+  /* background-color: #ffffff; */
+  padding: 0;
+  /* border: 3px dashed yellow; */
+}
+
+.left-bar {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  padding: 1rem;
+  background-color: #8edafc;
+  border: 3px dashed orange;
 }
 
 .header-right-col {
-  background-color: #f0f2f5;
+  background: #f0f2f5;
+  border: 3px dashed greenyellow;
+}
+
+.conversations {
+  background: url(../img/mine.jpg);
+  margin-bottom: 2rem;
+  /* border: 3px dashed red; */
 }
 .col-8 {
-  background: url(../img/mine.jpg);
+  /* background: url(../img/mine.jpg); */
+  padding: 0;
 }
 
 /* search bar */
 .searchBar {
+  padding: 1rem;
+  background-color: #eaeaea;
+  /* border: 3px dashed fuchsia; */
 }
 /* card */
 .avatarTextCard {
   position: relative;
+  padding: 0 1rem;
+  background-color: #ffffff;
   border-bottom: 1px solid gray;
 }
 
+.avatarTextCard:nth-last-child(2) {
+  /* margin-bottom: 5rem; */
+  border-bottom: none;
+}
 .textCard {
+  /* border: 3px dashed goldenrod; */
   position: absolute;
-  bottom: 0;
-  left: 50px;
+  bottom: 1rem;
+  left: 4.5rem;
 }
 
+#bottom-textcard-margin-white {
+  height: 3rem;
+  background-color: #ffffff;
+}
 .textHour {
   position: absolute;
   top: 0;
-  right: 0;
+  right: 0.5rem;
 }
 /* SIDE SECTION END */
 
 /* CONVERSATION SECTION START */
 
 .conversationPanel {
-  /* border: 3px dashed orange; */
-
-  height: 100%;
+  /* border: 4px dashed blueviolet; */
+  padding: 1rem 0;
+  /* height: 100%; */
+  /* position: absolute; */
 }
 
 .activeTextCard {
@@ -91,7 +151,16 @@ img {
   align-self: flex-end;
 }
 /* CONVERSATION SECTION END */
-
+/* FOOTER */
+.send-message-bar {
+  position: absolute;
+  bottom: 0;
+  background-color: #f3eeea;
+  /* width: 100%; */
+  /* margin-top: 65%; */
+  border: 3px dashed orange;
+  width: 100%;
+}
 /* DEBUG */
 .active {
   background-color: #90ee90;
