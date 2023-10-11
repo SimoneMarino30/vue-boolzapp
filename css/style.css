@@ -48,7 +48,7 @@ img {
 /* SIDE SECTION START */
 .header-left-col {
   background-color: #eaeaea;
-  border-right: 1px solid gray;
+  border-right: 1px solid #b1b1b1;
   /* padding: 1rem; */
 }
 .col-4 {
@@ -63,12 +63,38 @@ img {
   flex-wrap: wrap;
   padding: 1rem;
   background-color: #8edafc;
-  border: 3px dashed orange;
+  /* border: 3px dashed orange; */
+}
+
+.bell {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #f1f1f1;
+  color: #8edafc;
+  /* border: 1px solid gray; */
+  width: 4rem;
+  height: 4rem;
+  border-radius: 50%;
+  padding: 0.5rem;
+  font-size: 2rem;
+  margin-right: 1rem;
+}
+
+.notifications {
+  display: flex;
+  flex-direction: column;
 }
 
 .header-right-col {
-  background: #f0f2f5;
-  border: 3px dashed greenyellow;
+  background: #eaeaea;
+  /* border: 3px dashed greenyellow; */
+}
+
+.top-icons {
+  color: #b1b1b1;
+  font-size: 1.3rem;
+  font-weight: bolder;
 }
 
 .conversations {
@@ -84,7 +110,7 @@ img {
 /* search bar */
 .searchBar {
   padding: 1rem;
-  background-color: #eaeaea;
+  background-color: #fafafa;
   /* border: 3px dashed fuchsia; */
 }
 /* card */
@@ -92,7 +118,7 @@ img {
   position: relative;
   padding: 0 1rem;
   background-color: #ffffff;
-  border-bottom: 1px solid gray;
+  border-bottom: 1px solid #b1b1b1;
 }
 
 .avatarTextCard:nth-last-child(2) {
@@ -128,8 +154,9 @@ img {
 
 .activeTextCard {
   position: absolute;
-  bottom: 0;
-  left: 50px;
+  bottom: 1rem;
+  left: 4rem;
+  /* border: 4px dashed blueviolet; */
 }
 
 .activeTextCard > div {
@@ -137,13 +164,16 @@ img {
 }
 
 .message {
-  max-width: 70%;
+  /* max-width: 80%; */
+  width: 18rem;
   border-radius: 5px;
   padding: 0.5rem;
   margin: 0.5rem;
+  margin-right: 3rem;
 }
 .message.received {
   background-color: lightgreen;
+  margin-left: 3rem;
 }
 
 .message.sent {
@@ -158,7 +188,7 @@ img {
   background-color: #f3eeea;
   /* width: 100%; */
   /* margin-top: 65%; */
-  border: 3px dashed orange;
+  /* border: 3px dashed orange; */
   width: 100%;
 }
 /* DEBUG */
