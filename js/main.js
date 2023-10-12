@@ -29,7 +29,7 @@ createApp({
   data() {
     return {
       /* VARIABLES API CHATGPT*/
-      API_KEY: "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",
+      API_KEY: "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", // DISABILITATA, NON PIù FUNZIONANTE
       API_URL: "https://api.openai.com/v1/chat/completions",
       MODEL: "gpt-3.5-turbo",
 
