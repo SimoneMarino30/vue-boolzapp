@@ -196,7 +196,7 @@ createApp({
       clickedContact: 0,
 
       myNewText: {
-        date: "11:57",
+        date: this.currentDate(),
         text: "",
         status: "sent",
       },
@@ -206,6 +206,14 @@ createApp({
   },
 
   methods: {
+    currentDate() {
+      const current = new Date();
+      const date = `${current.getDate()}/${
+        current.getMonth() + 1
+      }/${current.getFullYear()} ${current.getHours()}:${current.getMinutes()}:${current.getSeconds()}`;
+      return date;
+    },
+
     filterList() {
       // "Rifaccio" il ciclo sui contatti
       for (const contact of this.contacts) {
@@ -234,11 +242,11 @@ createApp({
 
       setTimeout(() => {
         this.contacts[this.clickedContact].messages.push({
-          date: "11:58",
+          date: this.currentDate(),
           text: "ok!",
           status: "received",
         });
-      }, 1000);
+      }, 3000);
     },
   },
 }).mount("#root");
