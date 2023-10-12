@@ -17,6 +17,13 @@
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
     />
+    <!-- GOOGLE FONT -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;0,500;0,700;1,900&display=swap"
+      rel="stylesheet"
+    />
 
     <!-- BOOTSTRAP -->
     <link
@@ -47,7 +54,7 @@
           <!-- header left side -->
           <div class="header-left-col col-4 d-flex">
             <div class="d-inline">
-              <img src="./img/avatar_io.jpg" alt="" class="my-3 ms-3" />
+              <img src="./img/avatar_io.png" alt="" class="m-2" />
               <span>Simone</span>
             </div>
             <div class="top-icons d-inline ms-auto me-3 align-self-center">
@@ -60,12 +67,13 @@
           <div class="header-right-col col-8 d-flex">
             <div class="d-inline position-relative mx-3">
               <img
-                :src="'./img/avatar' + contacts[clickedContact].avatar + '.jpg'"
+                :src="'./img/avatar' + contacts[clickedContact].avatar + '.png'"
                 alt=""
-                class="my-3"
+                class="avatar-img-background my-3"
               />
               <div class="activeTextCard">
                 <div>{{contacts[clickedContact].name}}</div>
+                <!-- ! DINAMICIZZARE ORARIO ENTRATA -->
                 <div>Ultimo accesso oggi alle 12:00</div>
               </div>
             </div>
@@ -116,9 +124,9 @@
             >
               <div class="col-10">
                 <img
-                  :src="'./img/avatar' + contact.avatar +'.jpg'"
+                  :src="'./img/avatar' + contact.avatar +'.png'"
                   alt=""
-                  class="my-3"
+                  class="my-3 avatar-img-background"
                 />
                 <div class="textCard">
                   <div>{{ contact.name }}</div>
@@ -141,7 +149,7 @@
                 v-for="(sms, i) in contacts[clickedContact].messages"
                 class="d-flex flex-column flex-grow-1 align-items-start"
               >
-                <div :class="[sms.status]" class="message">
+                <div :class="[sms.status]" class="message my-3">
                   {{sms.text}} <br />
                   <small>{{sms.date}}</small>
                 </div>

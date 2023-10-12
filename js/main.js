@@ -28,16 +28,21 @@ const { createApp } = Vue;
 createApp({
   data() {
     return {
+      /* VARIABLES API CHATGPT*/
+      API_KEY: "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",
+      API_URL: "https://api.openai.com/v1/chat/completions",
+      MODEL: "gpt-3.5-turbo",
+
       // ARRAY OGGETTI
       contacts: [
         {
-          name: "Michele",
-          avatar: "_1",
+          name: "Homer",
+          avatar: "_homer-simpson",
           visible: true,
           messages: [
             {
               date: "10/01/2020 15:30:55",
-              text: "Hai portato a spasso il cane?",
+              text: "Hai portato a spasso il piccolo aiutante di babbo natale??",
               status: "sent",
             },
             {
@@ -47,14 +52,14 @@ createApp({
             },
             {
               date: "10/01/2020 16:15:22",
-              text: "Tutto fatto!",
+              text: "Sono da Boe!",
               status: "received",
             },
           ],
         },
         {
-          name: "Fabio",
-          avatar: "_2",
+          name: "Gandalf",
+          avatar: "_gandalf",
           visible: true,
           messages: [
             {
@@ -69,19 +74,19 @@ createApp({
             },
             {
               date: "20/03/2020 16:35:00",
-              text: "Mi piacerebbe ma devo andare a fare la spesa.",
+              text: "Devo studiare per l'esame di magia nera",
               status: "sent",
             },
           ],
         },
         {
-          name: "Samuele",
-          avatar: "_3",
+          name: "Batman",
+          avatar: "_batman",
           visible: true,
           messages: [
             {
               date: "28/03/2020 10:10:40",
-              text: "La Marianna va in campagna",
+              text: "Robin come stai??",
               status: "received",
             },
             {
@@ -97,8 +102,8 @@ createApp({
           ],
         },
         {
-          name: "Alessandro B.",
-          avatar: "_4",
+          name: "Barbie",
+          avatar: "_barbie",
           visible: true,
           messages: [
             {
@@ -114,30 +119,30 @@ createApp({
           ],
         },
         {
-          name: "Alessandro L.",
-          avatar: "_5",
+          name: "Hermione",
+          avatar: "_hermione-granger",
           visible: true,
           messages: [
             {
               date: "10/01/2020 15:30:55",
-              text: "Ricordati di chiamare la nonna",
+              text: "Ricordati di chiamare Harry",
               status: "sent",
             },
             {
               date: "10/01/2020 15:50:00",
-              text: "Va bene, stasera la sento",
+              text: "Va bene, stasera lo sento",
               status: "received",
             },
           ],
         },
         {
-          name: "Claudia",
-          avatar: "_6",
+          name: "Shrek",
+          avatar: "_shrek",
           visible: true,
           messages: [
             {
               date: "10/01/2020 15:30:55",
-              text: "Ciao Claudia, hai novità?",
+              text: "Ciao Shrek, hai novità di ciuchino?",
               status: "sent",
             },
             {
@@ -147,31 +152,31 @@ createApp({
             },
             {
               date: "10/01/2020 15:51:00",
-              text: "Nessuna nuova, buona nuova",
+              text: "Fammi sapere appena sai qualcosa",
               status: "sent",
             },
           ],
         },
         {
-          name: "Federico",
-          avatar: "_7",
+          name: "Harley",
+          avatar: "_harley-quinn",
           visible: true,
           messages: [
             {
               date: "10/01/2020 15:30:55",
-              text: "Fai gli auguri a Martina che è il suo compleanno!",
+              text: "Fai gli auguri a Joker che è il suo compleanno!",
               status: "sent",
             },
             {
               date: "10/01/2020 15:50:00",
-              text: "Grazie per avermelo ricordato, le scrivo subito!",
+              text: "Grazie per avermelo ricordato, gli scrivo subito!",
               status: "received",
             },
           ],
         },
         {
-          name: "Davide",
-          avatar: "_8",
+          name: "Ash",
+          avatar: "_ash-ketchum",
           visible: true,
           messages: [
             {
@@ -181,7 +186,7 @@ createApp({
             },
             {
               date: "10/01/2020 15:50:00",
-              text: "No, l'ho già mangiata ieri, ordiniamo sushi!",
+              text: "No, l'ho già mangiata ieri, ordiniamo sushi di magikarp!",
               status: "sent",
             },
             {
@@ -208,10 +213,49 @@ createApp({
   methods: {
     currentDate() {
       const current = new Date();
-      const date = `${current.getDate()}/${
-        current.getMonth() + 1
-      }/${current.getFullYear()} ${current.getHours()}:${current.getMinutes()}:${current.getSeconds()}`;
+      const date = `${current.getDate()}/${(current.getMonth() + 1)
+        .toString()
+        .padStart(2, "0")}/${current.getFullYear()} ${current
+        .getHours()
+        .toString()
+        .padStart(2, "0")}:${current
+        .getMinutes()
+        .toString()
+        .padStart(2, "0")}:${current.getSeconds().toString().padStart(2, "0")}`;
       return date;
+    },
+
+    async getTextFromVip() {
+      // Calcola l'indice dell'ultimo messaggio e ottengo il testo
+      let lastMessageIndex =
+        this.contacts[this.clickedContact].messages.length - 1;
+      let lastMessageText =
+        this.contacts[this.clickedContact].messages[lastMessageIndex].text;
+
+      const temperature = 0.7;
+      const response = await fetch(this.API_URL, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${this.API_KEY}`,
+        },
+        body: JSON.stringify({
+          model: this.MODEL,
+          messages: [
+            {
+              role: "user",
+              content: `Sei ${
+                this.contacts[this.clickedContact].avatar
+              } e rispondi al mio messaggio ${lastMessageText} come se fossimo in una chat in un massimo di 15 parole senza mai uscire dal tuo personaggio`,
+            },
+          ],
+          temperature: temperature,
+        }),
+      });
+      const data = await response.json();
+      console.log(data);
+      const message = data.choices[0].message.content;
+      return message;
     },
 
     filterList() {
@@ -241,11 +285,17 @@ createApp({
       this.myNewText.text = "";
 
       setTimeout(() => {
-        this.contacts[this.clickedContact].messages.push({
-          date: this.currentDate(),
-          text: "ok!",
-          status: "received",
-        });
+        this.getTextFromVip()
+          .then((message) => {
+            this.contacts[this.clickedContact].messages.push({
+              date: this.currentDate(),
+              text: message,
+              status: "received",
+            });
+          })
+          .catch((error) => {
+            console.error(error);
+          });
       }, 3000);
     },
   },

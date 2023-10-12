@@ -7,6 +7,7 @@
 
 html {
   background-color: #d8dbd4;
+  font-family: "Roboto", sans-serif;
 }
 
 img {
@@ -31,30 +32,21 @@ img {
 
 .container {
   position: relative;
-  /* padding-top: 2rem; */
-
-  /* height: 100vh; */
 }
 
 .top-border-from-panel {
   padding-top: 2rem;
 }
 
-.row {
-  /* border: 3px dashed blue; */
-  /* height: 100%; */
-}
-
 /* SIDE SECTION START */
 .header-left-col {
   background-color: #eaeaea;
   border-right: 1px solid #b1b1b1;
-  /* padding: 1rem; */
 }
+
+.col-8,
 .col-4 {
-  /* background-color: #ffffff; */
   padding: 0;
-  /* border: 3px dashed yellow; */
 }
 
 .left-bar {
@@ -63,7 +55,6 @@ img {
   flex-wrap: wrap;
   padding: 1rem;
   background-color: #8edafc;
-  /* border: 3px dashed orange; */
 }
 
 .bell {
@@ -72,7 +63,6 @@ img {
   align-items: center;
   background-color: #f1f1f1;
   color: #8edafc;
-  /* border: 1px solid gray; */
   width: 4rem;
   height: 4rem;
   border-radius: 50%;
@@ -88,7 +78,6 @@ img {
 
 .header-right-col {
   background: #eaeaea;
-  /* border: 3px dashed greenyellow; */
 }
 
 .top-icons {
@@ -100,18 +89,12 @@ img {
 .conversations {
   background: url(../img/mine.jpg);
   margin-bottom: 2rem;
-  /* border: 3px dashed red; */
-}
-.col-8 {
-  /* background: url(../img/mine.jpg); */
-  padding: 0;
 }
 
 /* search bar */
 .searchBar {
   padding: 1rem;
   background-color: #fafafa;
-  /* border: 3px dashed fuchsia; */
 }
 /* card */
 .avatarTextCard {
@@ -122,16 +105,17 @@ img {
 }
 
 .avatarTextCard:nth-last-child(2) {
-  /* margin-bottom: 5rem; */
   border-bottom: none;
 }
 .textCard {
-  /* border: 3px dashed goldenrod; */
   position: absolute;
   bottom: 1rem;
   left: 4.5rem;
 }
 
+.avatar-img-background {
+  background-color: gray;
+}
 #bottom-textcard-margin-white {
   height: 3rem;
   background-color: #ffffff;
@@ -146,17 +130,13 @@ img {
 /* CONVERSATION SECTION START */
 
 .conversationPanel {
-  /* border: 4px dashed blueviolet; */
   padding: 1rem 0;
-  /* height: 100%; */
-  /* position: absolute; */
 }
 
 .activeTextCard {
   position: absolute;
   bottom: 1rem;
   left: 4rem;
-  /* border: 4px dashed blueviolet; */
 }
 
 .activeTextCard > div {
@@ -164,7 +144,6 @@ img {
 }
 
 .message {
-  /* max-width: 80%; */
   width: 18rem;
   border-radius: 5px;
   padding: 0.5rem;
@@ -186,9 +165,6 @@ img {
   position: absolute;
   bottom: 0;
   background-color: #f3eeea;
-  /* width: 100%; */
-  /* margin-top: 65%; */
-  /* border: 3px dashed orange; */
   width: 100%;
 }
 /* DEBUG */
